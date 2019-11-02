@@ -6,6 +6,13 @@ namespace lab_2
     {
         private int startRange;
         private int endRange;
+        private int minimal;
+
+        public int Minimal
+        {
+            get { return minimal; }
+            set { minimal = value; }
+        }
 
         public int StartRange
         {

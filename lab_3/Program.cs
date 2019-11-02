@@ -9,6 +9,9 @@ namespace lab_2
             Controller controller = new Controller();
             controller.readExample();
             controller.exampleIntoArrayList();
+            controller.printUnsortedArray();
+            controller.sortArrayAccordingToDiagonalAndNumOfChannels();
+            controller.printSortedArray();
         }
     }
 }

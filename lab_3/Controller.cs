@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Collections;
 
 namespace lab_2
 {
@@ -43,10 +42,6 @@ namespace lab_2
                 tv3.NumOfChannels = int.Parse(words[j += 1]);
                 tv3.Diagonal = int.Parse(words[j += 1]);
 
-                Console.WriteLine(tv1);
-                Console.WriteLine(tv2);
-                Console.WriteLine(tv3);
-
                 if (fstream != null)
                 {
                     fstream.Close();
@@ -61,9 +56,16 @@ namespace lab_2
             tvArray[2] = tv3;
         }
 
+        public void printUnsortedArray()
+        {
+            foreach (Tv tv in tvArray)
+            {
+                Console.WriteLine(tv);
+            }
+        }
+
         public void sortArrayAccordingToDiagonalAndNumOfChannels()
         {
-            //Tv[] tvArraySorted = new Tv[tvArray.Length];
             services.enterRange();
 
             for(int i = 0; i < tvArray.Length; i++)
@@ -93,6 +95,18 @@ namespace lab_2
             foreach (Tv tv in tvArraySorted)
             {
                 Console.WriteLine(tv);
+            }
+        }
+
+        public void chooseMinimalElementInDiagonal()
+        {
+            for (int k = 0; k < tvArray.Length; k++)
+            { 
+                services.Minimal = tvArray[k].Diagonal;
+                if(tvArray[k + 1].Diagonal > services.Minimal)
+                {
+                    services.Minimal = tvArray[k + 1].Diagonal;
+                }
             }
         }
 

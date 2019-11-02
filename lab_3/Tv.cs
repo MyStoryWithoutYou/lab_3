@@ -116,7 +116,7 @@ namespace lab_2
         
         public override string ToString()
         {
-            return Model + ", " + Age + ", " + NumOfChannels + ", " + Diagonal;
+            return "\nМодель " + Model + ", срок службы " + Age + ", количество каналов " + NumOfChannels + ", диагональ " + Diagonal;
         }
         
         public int CompareTo(object o)
@@ -125,7 +125,7 @@ namespace lab_2
             if (tw != null)
                 return Model.CompareTo(tw.Model);
      
-                throw new Exception("\nНевозможно сравнить два объекта");
+            throw new Exception("\nНевозможно сравнить два объекта");
         }
 
         public int Value { get; set; }
