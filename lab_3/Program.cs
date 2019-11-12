@@ -8,7 +8,7 @@ namespace lab_2
         {
             Controller controller = new Controller();
             controller.readExample();
-            controller.exampleIntoArrayList();
+            controller.exampleIntoArray();
             controller.printUnsortedArray();
             controller.chooseAccordingToParameters();
             controller.bubbleSort();

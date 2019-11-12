@@ -51,7 +51,7 @@ namespace lab_2
             }
         }
 
-        public void exampleIntoArrayList()
+        public void exampleIntoArray()
         {
             tvArray[0] = tv1;
             tvArray[1] = tv2;
