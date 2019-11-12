@@ -7,11 +7,18 @@ namespace lab_2
         private int startRange;
         private int endRange;
         private int minimal;
+        private int average;
 
         public int Minimal
         {
             get { return minimal; }
             set { minimal = value; }
+        }
+        
+        public int Average
+        {
+            get { return average; }
+            set { average = value; }
         }
 
         public int StartRange

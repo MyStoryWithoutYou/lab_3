@@ -10,13 +10,14 @@ namespace lab_2
         Tv tv3 = new Tv();
         
         static Tv[] tvArray = new Tv[3];
-        Tv[] tvArraySorted = new Tv[tvArray.Length];
+        Tv[] tvArraySorted1 = new Tv[tvArray.Length];
+        Tv[] tvArraySorted2 = new Tv[tvArray.Length];
         
         Services services = new Services();
 
         public void readExample()
         {
-            using (FileStream fstream = File.OpenRead($"/Users/aliakseihudyma/RiderProjects/lab_3/lab_3/test.txt"))
+            using (FileStream fstream = File.OpenRead($"/Users/aliakseihudyma/RiderProjects/лабы 2 курс/lab_3/lab_3/input.txt"))
             {
                 // преобразуем строку в байты
                 byte[] array = new byte[fstream.Length];
@@ -63,51 +64,65 @@ namespace lab_2
                 Console.WriteLine(tv);
             }
         }
-
-        public void sortArrayAccordingToDiagonalAndNumOfChannels()
+        public void chooseAccordingToDiagonal()
         {
-            services.enterRange();
-
-            for(int i = 0; i < tvArray.Length; i++)
-            {
-                if (tvArray[i].Diagonal > services.StartRange & tvArray[i].Diagonal < services.EndRange)
-                {
-                    tvArraySorted[i] = tvArray[i];
-                }
-            }
-
-            services.StartRange = 0;
-            services.EndRange = 0;
-            
+            Console.WriteLine("\nВвод диапазона диагонали");
             services.enterRange();
             
-            for(int j = 0; j < tvArraySorted.Length; j++)
+            Console.WriteLine("\n***** Телевизоры с заданным диапазоном диагонали *****");
+            foreach (Tv tv in tvArray)
             {
-                if (tvArray[j].NumOfChannels > services.StartRange & tvArray[j].NumOfChannels < services.EndRange)
+                if (tv.Diagonal > services.StartRange & tv.Diagonal < services.EndRange)
                 {
-                    tvArraySorted[j] = tvArray[j];
+                    Console.WriteLine(tv);
                 }
             }
         }
-
-        public void printSortedArray()
+        
+        public void chooseAccordingToNumOfChannels()
         {
-            foreach (Tv tv in tvArraySorted)
+            Console.WriteLine("\nВвод диапазона количества каналов");
+            services.enterRange();
+            
+            Console.WriteLine("\n***** Телевизоры с заданным диапазоном количества каналов *****");
+            foreach (Tv tv in tvArray)
             {
-                Console.WriteLine(tv);
-            }
-        }
-
-        public void chooseMinimalElementInDiagonal()
-        {
-            for (int k = 0; k < tvArray.Length; k++)
-            { 
-                services.Minimal = tvArray[k].Diagonal;
-                if(tvArray[k + 1].Diagonal > services.Minimal)
+                if (tv.NumOfChannels > services.StartRange & tv.NumOfChannels < services.EndRange)
                 {
-                    services.Minimal = tvArray[k + 1].Diagonal;
+                    Console.WriteLine(tv);
                 }
             }
+        }
+        public void bubbleSort()
+        {
+            Tv temp;
+            for (int i = 0; i < tvArray.Length - 1; i++)
+            {
+                bool f = false;
+                for (int j = 0; j < tvArray.Length - i - 1; j++)
+                {
+                    if (tvArray[j+1].Diagonal < tvArray[j].Diagonal)
+                    {
+                        f = true;
+                        temp = tvArray[j+1];
+                        tvArray[j+1] = tvArray[j];
+                        tvArray[j] = temp;
+                    }                   
+                }
+                if(!f) break;
+            }
+            Console.WriteLine("\n***** Минимальный элемент по диагонали *****");
+            Console.WriteLine(tvArray[0]);
+        }
+
+        public string countAverageNumOfChannels()
+        {
+            foreach (Tv tv in tvArray)
+            {
+                services.Average += tv.NumOfChannels;
+            }
+
+            return "\nСреднее значение количества каналов равно " + services.Average / 3;
         }
 
         public Controller()
