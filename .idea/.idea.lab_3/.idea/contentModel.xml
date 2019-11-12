@@ -7,7 +7,6 @@
       <e p="lab_3" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controller.cs" t="Include" />
-        <e p="input.txt" t="Include" />
         <e p="lab_3.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

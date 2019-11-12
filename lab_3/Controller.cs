@@ -9,15 +9,16 @@ namespace lab_2
         Tv tv2 = new Tv();
         Tv tv3 = new Tv();
         
-        static Tv[] tvArray = new Tv[3];
-        Tv[] tvArraySorted1 = new Tv[tvArray.Length];
-        Tv[] tvArraySorted2 = new Tv[tvArray.Length];
+        Tv[] tvArray = new Tv[3];
+
+        string str1 = "";
+        string str2 = "";
         
         Services services = new Services();
 
         public void readExample()
         {
-            using (FileStream fstream = File.OpenRead($"/Users/aliakseihudyma/RiderProjects/лабы 2 курс/lab_3/lab_3/input.txt"))
+            using (FileStream fstream = File.OpenRead($"/Users/aliakseihudyma/RiderProjects/лабы 2 курс/lab_3/input.txt"))
             {
                 // преобразуем строку в байты
                 byte[] array = new byte[fstream.Length];
@@ -64,7 +65,7 @@ namespace lab_2
                 Console.WriteLine(tv);
             }
         }
-        public void chooseAccordingToDiagonal()
+        public void chooseAccordingToParameters()
         {
             Console.WriteLine("\nВвод диапазона диагонали");
             services.enterRange();
@@ -75,12 +76,11 @@ namespace lab_2
                 if (tv.Diagonal > services.StartRange & tv.Diagonal < services.EndRange)
                 {
                     Console.WriteLine(tv);
+                    
+                    str1 = tv.ToString();
                 }
             }
-        }
-        
-        public void chooseAccordingToNumOfChannels()
-        {
+            
             Console.WriteLine("\nВвод диапазона количества каналов");
             services.enterRange();
             
@@ -90,9 +90,20 @@ namespace lab_2
                 if (tv.NumOfChannels > services.StartRange & tv.NumOfChannels < services.EndRange)
                 {
                     Console.WriteLine(tv);
+                    
+                    str2 = tv.ToString();
                 }
             }
+
+            string str = str1 + str2;
+            
+            using (FileStream fstream = new FileStream($"/Users/aliakseihudyma/RiderProjects/лабы 2 курс/lab_3/output.txt", FileMode.OpenOrCreate))//starting a stream of writing into a file
+            {
+                byte[] array2 = System.Text.Encoding.Default.GetBytes(str);//transforming string into bytes
+                fstream.Write(array2, 0, array2.Length);//writing bytes into the file
+            }
         }
+
         public void bubbleSort()
         {
             Tv temp;

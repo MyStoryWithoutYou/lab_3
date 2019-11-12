@@ -10,8 +10,7 @@ namespace lab_2
             controller.readExample();
             controller.exampleIntoArrayList();
             controller.printUnsortedArray();
-            controller.chooseAccordingToDiagonal();
-            controller.chooseAccordingToNumOfChannels();
+            controller.chooseAccordingToParameters();
             controller.bubbleSort();
             Console.WriteLine(controller.countAverageNumOfChannels());
         }
