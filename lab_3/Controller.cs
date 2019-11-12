@@ -99,8 +99,8 @@ namespace lab_2
             
             using (FileStream fstream = new FileStream($"/Users/aliakseihudyma/RiderProjects/лабы 2 курс/lab_3/output.txt", FileMode.OpenOrCreate))//starting a stream of writing into a file
             {
-                byte[] array2 = System.Text.Encoding.Default.GetBytes(str);//transforming string into bytes
-                fstream.Write(array2, 0, array2.Length);//writing bytes into the file
+                byte[] array = System.Text.Encoding.Default.GetBytes(str);//transforming string into bytes
+                fstream.Write(array, 0, array.Length);//writing bytes into the file
             }
         }
 
