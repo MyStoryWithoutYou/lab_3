@@ -116,7 +116,7 @@ namespace lab_2
         
         public override string ToString()
         {
-            return "\nМодель " + Model + ", срок службы " + Age + ", количество каналов " + NumOfChannels + ", диагональ " + Diagonal;
+            return "\nМодель: " + Model + ", срок службы: " + Age + ", количество каналов: " + NumOfChannels + ", диагональ: " + Diagonal;
         }
         
         public int CompareTo(object o)
