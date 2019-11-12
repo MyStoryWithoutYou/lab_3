@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace lab_2
+namespace lab_3
 {
     public class Controller
     {
